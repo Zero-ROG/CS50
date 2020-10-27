@@ -13,7 +13,8 @@ int main()
     scanf("%[^\n]", plaintext);
 
         int len = strlen(plaintext);
-    for(int i=0; i<strlen(plaintext); i++){
+        //len必须+1，因为ciphertext需要把plaintext最后的\0也复制进去，否则会出bug
+    for(int i=0; i<len+1; i++){
         if(plaintext[i] > 64 && plaintext[i] < 91){
             ciphertext[i] = (char)(((plaintext[i] - 65 + n) % 26) + 65);
         }
